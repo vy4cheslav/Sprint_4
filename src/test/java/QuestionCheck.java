@@ -2,15 +2,16 @@
 
 
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
-
+import org.openqa.selenium.WebDriver;
 
 
 @RunWith(Parameterized.class)
-public class QuestionCheck extends DriverSettings {
+public class QuestionCheck {
 
     private static int index;
     private static String question;
@@ -35,11 +36,13 @@ public class QuestionCheck extends DriverSettings {
                 { 7, "Я жизу за МКАДом, привезёте?", "Да, обязательно. Всем самокатов! И Москве, и Московской области." }
         };
     }
-
+    @Rule
+    public DriverRule driverRule = new DriverRule();
 
 
     @Test
     public void accordionCheck(){
+        WebDriver driver = driverRule.getDriver();
         MainPageObject MP = new MainPageObject(driver);
         MP.openQAScooter();
         MP.cookieClose();

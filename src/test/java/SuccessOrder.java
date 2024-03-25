@@ -1,4 +1,6 @@
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -6,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(Parameterized.class)
-public class SuccessOrder extends DriverSettings {
+public class SuccessOrder {
     private By orderButton;
     private String firstName;
     private String secondName;
@@ -44,8 +46,11 @@ public class SuccessOrder extends DriverSettings {
         };
     }
 
+    @Rule
+    public DriverRule driverRule = new DriverRule();
     @Test
     public void createNewOrderTest() {
+        WebDriver driver = driverRule.getDriver();
         MainPageObject MP = new MainPageObject(driver);
         MP.openQAScooter();
         MP.cookieClose();
