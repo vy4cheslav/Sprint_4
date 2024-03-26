@@ -10,13 +10,13 @@ public class OrderPage {
     private static final By firstNameInput = By.xpath(".//input[@placeholder='* Имя']");
     //Поле ввода фамилии
     private static final By secondNameInput = By.xpath(".//input[@placeholder='* Фамилия']");
-    // поле ввода адреса
+    // поле ввода адрес
     private static final By adresInput = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
     // поле выбора станции метро
     private static final By metroInput = By.xpath(".//input[@placeholder='* Станция метро']");
     //выбор станции из выпадающего списка
     private static final By metroStationInput = By.className("Order_Text__2broi");
-    //поле ввода телефона
+    //поле ввода телефон
     private static final By phoneNumberInput = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     //кнопка "Далее"
     private static final By nextButtonInput = By.xpath(".//div[@class='Order_NextButton__1_rCA']/button");
@@ -108,6 +108,5 @@ public class OrderPage {
     public void getTextFromPopupOrderWindow() {
         System.out.println(driver.findElement(successPurchase).getText());
     }
-
 
 }

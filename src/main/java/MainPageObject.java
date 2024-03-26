@@ -12,7 +12,7 @@ public class MainPageObject {
     // большая кнопка "Заказать"
     public static final By orderButtonBig = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[contains(text(),'Заказать')]");
 
-    // Закрытия куков
+    // Закрытия куки
     private static final By cookieClose = By.id("rcc-confirm-button");
     // Селектор для скрола до вопросов
     private static final By questionsBar = By.cssSelector(".Home_FAQ__3uVm4");
