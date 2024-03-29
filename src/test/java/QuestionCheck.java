@@ -39,17 +39,16 @@ public class QuestionCheck {
     @Rule
     public DriverRule driverRule = new DriverRule();
 
-
     @Test
     public void accordionCheck(){
         WebDriver driver = driverRule.getDriver();
-        MainPageObject MP = new MainPageObject(driver);
-        MP.openQAScooter();
-        MP.cookieClose();
-        String actualQuestion = MP.clickQuestion(index);
-        String actualAnswer = MP.answerDisplayed(index);
+        MainPageObject mainPageObject = new MainPageObject(driver);
+        mainPageObject.openQAScooter();
+        mainPageObject.cookieClose();
+        String actualQuestion = mainPageObject.clickQuestion(index);
+        String actualAnswer = mainPageObject.answerDisplayed(index);
 
-        Assert.assertEquals("Проверка текста вопроса", actualQuestion, question);
-        Assert.assertEquals("Проверка текста ответа", actualAnswer, answer);
+        Assert.assertEquals("Проверка текста вопроса", question,actualQuestion);
+        Assert.assertEquals("Проверка текста ответа", answer, actualAnswer);
     }
  }

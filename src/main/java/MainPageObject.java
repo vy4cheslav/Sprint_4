@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MainPageObject {
     private  WebDriver driver;
     // верхняя кнопка "Заказать"
-    public static final By orderButtonUp = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[contains(text(),'Заказать')]");
+    public static final By OrderButtonUp = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[contains(text(),'Заказать')]");
     // большая кнопка "Заказать"
-    public static final By orderButtonBig = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[contains(text(),'Заказать')]");
+    public static final By OrderButtonBig = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[contains(text(),'Заказать')]");
 
     // Закрытия куки
-    private static final By cookieClose = By.id("rcc-confirm-button");
+    private static final By CookieClose = By.id("rcc-confirm-button");
     // Селектор для скрола до вопросов
-    private static final By questionsBar = By.cssSelector(".Home_FAQ__3uVm4");
+    private static final By QuestionsBar = By.cssSelector(".Home_FAQ__3uVm4");
 
     public MainPageObject(WebDriver driver) {
         this.driver = driver;
@@ -41,7 +41,7 @@ public class MainPageObject {
     }
 
     public MainPageObject cookieClose() {
-        driver.findElement(cookieClose).click();
+        driver.findElement(CookieClose).click();
 
         return this;
     }

@@ -1,3 +1,4 @@
+import org.hamcrest.MatcherAssert;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -6,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static org.hamcrest.CoreMatchers.startsWith;
 
 @RunWith(Parameterized.class)
 public class SuccessOrder {
@@ -37,12 +40,12 @@ public class SuccessOrder {
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][]{
-                {MainPageObject.orderButtonUp,
+                {MainPageObject.OrderButtonUp,
                         "Порфирий", "Петрович", "Кутузовская 13, кв 44", "Кутузовская", "+79161615877",
-                        "25.03.2024", "сутки", OrderPage.colorBlack, "Домофон 35, отличается от номера квартиры"},
-                {MainPageObject.orderButtonBig,
+                        "25.03.2024", "сутки", OrderPage.ColorBlack, "Домофон 35, отличается от номера квартиры"},
+                {MainPageObject.OrderButtonBig,
                         "Бату", "Караев", "Фестивальная 33 кв 31", "Речной Вокзал", "88005353535",
-                        "27.03.2024", "двое суток", OrderPage.colorGrey, "С 7 до 9"},
+                        "27.03.2024", "двое суток", OrderPage.ColorGrey, "С 7 до 9"},
         };
     }
 
@@ -51,18 +54,16 @@ public class SuccessOrder {
     @Test
     public void createNewOrderTest() {
         WebDriver driver = driverRule.getDriver();
-        MainPageObject MP = new MainPageObject(driver);
-        MP.openQAScooter();
-        MP.cookieClose();
-        MP.ScrollToBigOrderButton(orderButton);
-        MP.OrderButtonClick(orderButton);
-        OrderPage OP = new OrderPage(driver);
-        OP.setDataFirstPageOrder(firstName, secondName, adres, metroStation, phoneNumber);
-        OP.setDataSecondPageOrder(date, rentalPeriod, color, comment);
-        OP.clickYesButton();
-        boolean isDisplayed = OP.isOrderWindowDisplayed();
-        Assert.assertTrue(isDisplayed);
-        OP.getTextFromPopupOrderWindow();
+        MainPageObject mainPageObject = new MainPageObject(driver);
+        mainPageObject.openQAScooter();
+        mainPageObject.cookieClose();
+        mainPageObject.ScrollToBigOrderButton(orderButton);
+        mainPageObject.OrderButtonClick(orderButton);
+        OrderPage orderPage = new OrderPage(driver);
+        orderPage.setDataFirstPageOrder(firstName, secondName, adres, metroStation, phoneNumber);
+        orderPage.setDataSecondPageOrder(date, rentalPeriod, color, comment);
+        orderPage.clickYesButton();
+        MatcherAssert.assertThat(orderPage.getTextFromPopupOrderWindow(), startsWith("Заказ оформлен"));
     }
 }
 
