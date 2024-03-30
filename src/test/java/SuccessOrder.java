@@ -40,12 +40,12 @@ public class SuccessOrder {
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][]{
-                {MainPageObject.OrderButtonUp,
+                {MainPageObject.ORDERBUTTONUP,
                         "Порфирий", "Петрович", "Кутузовская 13, кв 44", "Кутузовская", "+79161615877",
-                        "25.03.2024", "сутки", OrderPage.ColorBlack, "Домофон 35, отличается от номера квартиры"},
-                {MainPageObject.OrderButtonBig,
+                        "25.03.2024", "сутки", OrderPage.COLORBLACK, "Домофон 35, отличается от номера квартиры"},
+                {MainPageObject.ORDERBUTTONBIG,
                         "Бату", "Караев", "Фестивальная 33 кв 31", "Речной Вокзал", "88005353535",
-                        "27.03.2024", "двое суток", OrderPage.ColorGrey, "С 7 до 9"},
+                        "27.03.2024", "двое суток", OrderPage.COLORGREY, "С 7 до 9"},
         };
     }
 
@@ -57,8 +57,8 @@ public class SuccessOrder {
         MainPageObject mainPageObject = new MainPageObject(driver);
         mainPageObject.openQAScooter();
         mainPageObject.cookieClose();
-        mainPageObject.ScrollToBigOrderButton(orderButton);
-        mainPageObject.OrderButtonClick(orderButton);
+        mainPageObject.scrollToBigOrderButton(orderButton);
+        mainPageObject.оrderButtonClick(orderButton);
         OrderPage orderPage = new OrderPage(driver);
         orderPage.setDataFirstPageOrder(firstName, secondName, adres, metroStation, phoneNumber);
         orderPage.setDataSecondPageOrder(date, rentalPeriod, color, comment);

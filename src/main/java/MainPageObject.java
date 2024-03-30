@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MainPageObject {
     private  WebDriver driver;
     // верхняя кнопка "Заказать"
-    public static final By OrderButtonUp = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[contains(text(),'Заказать')]");
+    public static final By ORDERBUTTONUP = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[contains(text(),'Заказать')]");
     // большая кнопка "Заказать"
-    public static final By OrderButtonBig = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[contains(text(),'Заказать')]");
+    public static final By ORDERBUTTONBIG = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[contains(text(),'Заказать')]");
 
     // Закрытия куки
-    private static final By CookieClose = By.id("rcc-confirm-button");
+    private static final By COOKIECLOSE = By.id("rcc-confirm-button");
     // Селектор для скрола до вопросов
-    private static final By QuestionsBar = By.cssSelector(".Home_FAQ__3uVm4");
+    private static final By QUESTIONSSBAR = By.cssSelector(".Home_FAQ__3uVm4");
 
     public MainPageObject(WebDriver driver) {
         this.driver = driver;
@@ -41,16 +41,16 @@ public class MainPageObject {
     }
 
     public MainPageObject cookieClose() {
-        driver.findElement(CookieClose).click();
+        driver.findElement(COOKIECLOSE).click();
 
         return this;
     }
-    public MainPageObject ScrollToBigOrderButton(By orderButton) {
+    public MainPageObject scrollToBigOrderButton(By orderButton) {
         WebElement element = driver.findElement(orderButton);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         return this;
     }
-    public MainPageObject OrderButtonClick (By orderButton) {
+    public MainPageObject оrderButtonClick (By orderButton) {
         driver.findElement(orderButton).click();
         return this;
     }

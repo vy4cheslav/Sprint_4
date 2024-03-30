@@ -48,7 +48,7 @@ public class QuestionCheck {
         String actualQuestion = mainPageObject.clickQuestion(index);
         String actualAnswer = mainPageObject.answerDisplayed(index);
 
-        Assert.assertEquals("Проверка текста вопроса", question,actualQuestion);
+        Assert.assertEquals("Проверка текста вопроса", question, actualQuestion);
         Assert.assertEquals("Проверка текста ответа", answer, actualAnswer);
     }
  }
