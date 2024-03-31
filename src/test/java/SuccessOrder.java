@@ -40,12 +40,12 @@ public class SuccessOrder {
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][]{
-                {MainPageObject.ORDERBUTTONUP,
+                {MainPageObject.ORDER_BUTTON_UP,
                         "Порфирий", "Петрович", "Кутузовская 13, кв 44", "Кутузовская", "+79161615877",
-                        "25.03.2024", "сутки", OrderPage.COLORBLACK, "Домофон 35, отличается от номера квартиры"},
-                {MainPageObject.ORDERBUTTONBIG,
+                        "25.03.2024", "сутки", OrderPage.COLOR_BLACK, "Домофон 35, отличается от номера квартиры"},
+                {MainPageObject.ORDER_BUTTON_BIG,
                         "Бату", "Караев", "Фестивальная 33 кв 31", "Речной Вокзал", "88005353535",
-                        "27.03.2024", "двое суток", OrderPage.COLORGREY, "С 7 до 9"},
+                        "27.03.2024", "двое суток", OrderPage.COLOR_GREY, "С 7 до 9"},
         };
     }
 
